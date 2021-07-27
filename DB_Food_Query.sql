@@ -35,8 +35,12 @@ create table restaurant
    primary key(RESTAURANT_ID)
 );
 
+ 
+
 insert into restaurant(RESTAURANT_NAME, RESTAURANT_ADDRESS,CATEGORY_ID) values("Udupi grand","Udupi",4);
 insert into restaurant(RESTAURANT_NAME, RESTAURANT_ADDRESS,CATEGORY_ID) values("Shengai","Bangalore",3);
+
+ 
 
 create table food_ITems
 (
@@ -58,15 +62,19 @@ create table customer
   CUSTOMER_ADDRESS VARCHAR(255) not null,
   EMAIL VARCHAR(255) not null
    );
-   
+   select * from customer;
    truncate table customer;
    
    create table cartz
 (
   C_ID int not null auto_increment primary key,
   ITEM_ID int not null,
-  CUST_ID int not null,
+  CUSTOMER_ID int not null,
   FOREIGN KEY (ITEM_ID) REFERENCES food_ITems(ITEM_ID) ON DELETE CASCADE,
   FOREIGN KEY (CUST_ID) REFERENCES customer(CUSTOMER_ID),
   CONFIRM_ORDER TINYINT(1)
 ) ;
+
+select * from cartz;
+
+drop table cartz
